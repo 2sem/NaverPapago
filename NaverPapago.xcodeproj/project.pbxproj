@@ -10,6 +10,14 @@
 		2C1238EF209892C3006DD2CE /* NaverPapago.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C1238E5209892C3006DD2CE /* NaverPapago.framework */; };
 		2C1238F4209892C3006DD2CE /* NaverPapagoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1238F3209892C3006DD2CE /* NaverPapagoTests.swift */; };
 		2C1238F6209892C3006DD2CE /* NaverPapago.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C1238E8209892C3006DD2CE /* NaverPapago.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2C12390020989327006DD2CE /* NaverPapago.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 2C1238FF20989326006DD2CE /* NaverPapago.podspec */; };
+		2C1239062098978A006DD2CE /* NaverPapagoNMTRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1239032098978A006DD2CE /* NaverPapagoNMTRequest.swift */; };
+		2C1239072098978A006DD2CE /* NaverPapagoNMTError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1239042098978A006DD2CE /* NaverPapagoNMTError.swift */; };
+		2C1239082098978A006DD2CE /* NaverPapagoSMTResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1239052098978A006DD2CE /* NaverPapagoSMTResponse.swift */; };
+		2C12390C2098979A006DD2CE /* NaverSMTResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1239092098979A006DD2CE /* NaverSMTResponse.swift */; };
+		2C12390D2098979A006DD2CE /* NaverPapagoSMTRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C12390A2098979A006DD2CE /* NaverPapagoSMTRequest.swift */; };
+		2C12390E2098979A006DD2CE /* NaverPapagoSMTError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C12390B2098979A006DD2CE /* NaverPapagoSMTError.swift */; };
+		2C123910209897A5006DD2CE /* NaverPapago.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C12390F209897A5006DD2CE /* NaverPapago.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +37,14 @@
 		2C1238EE209892C3006DD2CE /* NaverPapagoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NaverPapagoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C1238F3209892C3006DD2CE /* NaverPapagoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverPapagoTests.swift; sourceTree = "<group>"; };
 		2C1238F5209892C3006DD2CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C1238FF20989326006DD2CE /* NaverPapago.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NaverPapago.podspec; sourceTree = "<group>"; };
+		2C1239032098978A006DD2CE /* NaverPapagoNMTRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NaverPapagoNMTRequest.swift; sourceTree = "<group>"; };
+		2C1239042098978A006DD2CE /* NaverPapagoNMTError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NaverPapagoNMTError.swift; sourceTree = "<group>"; };
+		2C1239052098978A006DD2CE /* NaverPapagoSMTResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NaverPapagoSMTResponse.swift; sourceTree = "<group>"; };
+		2C1239092098979A006DD2CE /* NaverSMTResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NaverSMTResponse.swift; sourceTree = "<group>"; };
+		2C12390A2098979A006DD2CE /* NaverPapagoSMTRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NaverPapagoSMTRequest.swift; sourceTree = "<group>"; };
+		2C12390B2098979A006DD2CE /* NaverPapagoSMTError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NaverPapagoSMTError.swift; sourceTree = "<group>"; };
+		2C12390F209897A5006DD2CE /* NaverPapago.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NaverPapago.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +69,7 @@
 		2C1238DB209892C3006DD2CE = {
 			isa = PBXGroup;
 			children = (
+				2C1238FF20989326006DD2CE /* NaverPapago.podspec */,
 				2C1238E7209892C3006DD2CE /* NaverPapago */,
 				2C1238F2209892C3006DD2CE /* NaverPapagoTests */,
 				2C1238E6209892C3006DD2CE /* Products */,
@@ -71,6 +88,9 @@
 		2C1238E7209892C3006DD2CE /* NaverPapago */ = {
 			isa = PBXGroup;
 			children = (
+				2C1239012098974E006DD2CE /* NMT */,
+				2C1239022098975F006DD2CE /* SMT */,
+				2C12390F209897A5006DD2CE /* NaverPapago.swift */,
 				2C1238E8209892C3006DD2CE /* NaverPapago.h */,
 				2C1238E9209892C3006DD2CE /* Info.plist */,
 			);
@@ -84,6 +104,26 @@
 				2C1238F5209892C3006DD2CE /* Info.plist */,
 			);
 			path = NaverPapagoTests;
+			sourceTree = "<group>";
+		};
+		2C1239012098974E006DD2CE /* NMT */ = {
+			isa = PBXGroup;
+			children = (
+				2C1239032098978A006DD2CE /* NaverPapagoNMTRequest.swift */,
+				2C1239052098978A006DD2CE /* NaverPapagoSMTResponse.swift */,
+				2C1239042098978A006DD2CE /* NaverPapagoNMTError.swift */,
+			);
+			path = NMT;
+			sourceTree = "<group>";
+		};
+		2C1239022098975F006DD2CE /* SMT */ = {
+			isa = PBXGroup;
+			children = (
+				2C12390A2098979A006DD2CE /* NaverPapagoSMTRequest.swift */,
+				2C1239092098979A006DD2CE /* NaverSMTResponse.swift */,
+				2C12390B2098979A006DD2CE /* NaverPapagoSMTError.swift */,
+			);
+			path = SMT;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,6 +217,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C12390020989327006DD2CE /* NaverPapago.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +235,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C123910209897A5006DD2CE /* NaverPapago.swift in Sources */,
+				2C12390E2098979A006DD2CE /* NaverPapagoSMTError.swift in Sources */,
+				2C12390D2098979A006DD2CE /* NaverPapagoSMTRequest.swift in Sources */,
+				2C12390C2098979A006DD2CE /* NaverSMTResponse.swift in Sources */,
+				2C1239062098978A006DD2CE /* NaverPapagoNMTRequest.swift in Sources */,
+				2C1239082098978A006DD2CE /* NaverPapagoSMTResponse.swift in Sources */,
+				2C1239072098978A006DD2CE /* NaverPapagoNMTError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +396,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = NaverPapago/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -373,6 +422,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = NaverPapago/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -389,6 +439,7 @@
 		2C1238FD209892C3006DD2CE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M29A6H95KD;
 				INFOPLIST_FILE = NaverPapagoTests/Info.plist;
@@ -407,6 +458,7 @@
 		2C1238FE209892C3006DD2CE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M29A6H95KD;
 				INFOPLIST_FILE = NaverPapagoTests/Info.plist;

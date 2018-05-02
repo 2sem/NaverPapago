@@ -1,6 +1,6 @@
 //
 //  NaverSMTRequest.swift
-//  talktrans
+//  NaverPapago
 //
 //  Created by 영준 이 on 2018. 4. 14..
 //  Copyright © 2018년 leesam. All rights reserved.

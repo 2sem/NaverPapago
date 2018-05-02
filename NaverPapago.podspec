@@ -97,7 +97,7 @@ s.source       = { :git => "https://github.com/2sem/NaverPapago.git", :tag => "#
 #  Not including the public_header_files will make all headers public.
 #
 
-s.source_files  = "*/NaverPapago/*.swift", "*/NaverPapago/*/*.swift", "**/*.{h,m}"
+s.source_files  = "NaverPapago/*.swift", "NaverPapago/*/*.swift", "**/*.{h,m}"
 #s.exclude_files = "Classes/Exclude"
 
 # s.public_header_files = "Classes/**/*.h"
@@ -139,6 +139,7 @@ s.source_files  = "*/NaverPapago/*.swift", "*/NaverPapago/*/*.swift", "**/*.{h,m
 # s.requires_arc = true
 
 # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-# s.dependency "JSONKit", "~> 1.4"
+#s.xcconfig = { "APPLICATION_EXTENSION_API_ONLY" => "NO" }
+s.dependency "Alamofire", "~> 4.7.2"
 
 end

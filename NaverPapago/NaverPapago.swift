@@ -143,7 +143,7 @@ public class NaverPapago : NSObject{
         # Reference
         * [https://developers.naver.com/docs/nmt/reference](https://developers.naver.com/docs/nmt/reference/)
     */
-    public func requestTranslateByNMT(text : String, source : Locale, target : Locale, completionHandler: TranslateCompletionHandler?){
+    public func requestTranslateByNMT(text : String, source : Locale, target : Locale, completionHandler: @escaping (_ result: NaverPapagoNMTResult) -> Void){
         var naverReq = NaverPapagoNMTRequest(id: self.clientIDForAPI(.nmt),
                                              secret: self.clientSecretForAPI(.nmt));
         
@@ -166,7 +166,7 @@ public class NaverPapago : NSObject{
         Alamofire.request(naverReq.urlRequest).responseObject(success: NaverPapagoNMTResponse.self,
                                                               fail: NaverPapagoNMTError.self,
                                                               failureHandler: {(fail, response) in
-                                                                completionHandler?(response.response?.statusCode ?? 599, nil, response.error);
+                                                                completionHandler(NaverPapagoNMTResult.error(fail!));
         }) { (success, response) in
             //Turns off network indicator
             DispatchQueue.main.async {
@@ -175,7 +175,8 @@ public class NaverPapago : NSObject{
             let translatedText = success.message.result.text;
             
             //Executes success callback
-            completionHandler?(response.response?.statusCode ?? 200, translatedText, nil);
+            completionHandler(NaverPapagoNMTResult.success(translatedText));
+            //completionHandler?(response.response?.statusCode ?? 200, translatedText, nil);
         }
     }
     

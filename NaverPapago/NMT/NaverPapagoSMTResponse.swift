@@ -25,7 +25,9 @@ import Foundation
 public struct NaverPapagoNMTResponse : Codable{
     struct Message: Codable{
         struct Result: Codable{
+            /// lanauge of native text
             var source: String;
+            /// translated text
             var text: String;
             
             enum CodingKeys: String, CodingKey{

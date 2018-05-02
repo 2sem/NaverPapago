@@ -15,7 +15,9 @@ import Foundation
  }
  */
 public struct NaverPapagoSMTError : Codable{
+    /// SMT Error Message
     var message : String;
+    /// SMT Error Code
     var code : String;
     enum ErrorCode : String{
         case TR01, TR02, TR03, TR04, TR05, TR06, TR07, TR08

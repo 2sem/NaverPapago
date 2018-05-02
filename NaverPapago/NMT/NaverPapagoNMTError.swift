@@ -10,12 +10,14 @@ import Foundation
 
 /**
  {
- "errorMessage":"text parameter is needed (text 파라미터가 필요합니다.)",
- "errorCode":"TR07"
+     "errorMessage":"text parameter is needed (text 파라미터가 필요합니다.)",
+     "errorCode":"TR07"
  }
  */
 public struct NaverPapagoNMTError : Codable{
+    /// NMT Error Message
     var message : String;
+    /// NMT Error Code
     var code : String;
     enum ErrorCode : String{
         case N2MT01, N2MT02, N2MT03, N2MT04, N2MT05, N2MT06, N2MT07, N2MT08

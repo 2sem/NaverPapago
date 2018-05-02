@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2C1104432099AF1B00FB2B14 /* NaverPapagoNMTResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1104422099AF1B00FB2B14 /* NaverPapagoNMTResult.swift */; };
+		2C1104452099E1C900FB2B14 /* NaverPapagoSMTResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1104442099E1C900FB2B14 /* NaverPapagoSMTResult.swift */; };
 		2C1238EF209892C3006DD2CE /* NaverPapago.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C1238E5209892C3006DD2CE /* NaverPapago.framework */; };
 		2C1238F4209892C3006DD2CE /* NaverPapagoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1238F3209892C3006DD2CE /* NaverPapagoTests.swift */; };
 		2C1238F6209892C3006DD2CE /* NaverPapago.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C1238E8209892C3006DD2CE /* NaverPapago.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -34,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		2C1104422099AF1B00FB2B14 /* NaverPapagoNMTResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverPapagoNMTResult.swift; sourceTree = "<group>"; };
+		2C1104442099E1C900FB2B14 /* NaverPapagoSMTResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverPapagoSMTResult.swift; sourceTree = "<group>"; };
 		2C1238E5209892C3006DD2CE /* NaverPapago.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NaverPapago.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C1238E8209892C3006DD2CE /* NaverPapago.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NaverPapago.h; sourceTree = "<group>"; };
 		2C1238E9209892C3006DD2CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				2C12390A2098979A006DD2CE /* NaverPapagoSMTRequest.swift */,
 				2C1239092098979A006DD2CE /* NaverSMTResponse.swift */,
 				2C12390B2098979A006DD2CE /* NaverPapagoSMTError.swift */,
+				2C1104442099E1C900FB2B14 /* NaverPapagoSMTResult.swift */,
 			);
 			path = SMT;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 			files = (
 				2C123910209897A5006DD2CE /* NaverPapago.swift in Sources */,
 				2C12390E2098979A006DD2CE /* NaverPapagoSMTError.swift in Sources */,
+				2C1104452099E1C900FB2B14 /* NaverPapagoSMTResult.swift in Sources */,
 				2C12390D2098979A006DD2CE /* NaverPapagoSMTRequest.swift in Sources */,
 				2CB6DF492098BA450062AEA2 /* DataRequest+.swift in Sources */,
 				2C12390C2098979A006DD2CE /* NaverSMTResponse.swift in Sources */,

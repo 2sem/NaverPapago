@@ -118,8 +118,6 @@ public class NaverPapago : NSObject{
     
     static let DefaultSourceLang : PapagoLanguage = .korean;
     
-    public typealias TranslateCompletionHandler = ((_ httpCode: Int, _ result : String?, _ error: Error?) -> Void);
-    
     /**
         Returns the indication to able to translate by given locale of source/target
          - parameter source: locale of native text
@@ -192,7 +190,7 @@ public class NaverPapago : NSObject{
      # Reference
      * [https://developers.naver.com/docs/nmt/reference](https://developers.naver.com/docs/smt/reference/)
      */
-    public func requestTranslateBySMT(text : String, source : Locale, target : Locale, completionHandler: TranslateCompletionHandler?){
+    public func requestTranslateBySMT(text : String, source : Locale, target : Locale, completionHandler: @escaping (NaverPapagoSMTResult) -> Void){
         var naverReq = NaverPapagoSMTRequest(id: self.clientIDForAPI(.nmt),
                                        secret: self.clientSecretForAPI(.nmt));
         
@@ -215,7 +213,7 @@ public class NaverPapago : NSObject{
         Alamofire.request(naverReq.urlRequest).responseObject(success: NaverPapagoSMTResponse.self,
                                                               fail: NaverPapagoSMTError.self,
                                                               failureHandler: {(fail, response) in
-            completionHandler?(response.response?.statusCode ?? 599, nil, response.error);
+            completionHandler(NaverPapagoSMTResult.error(fail!));
         }) { (success, response) in
             //Turns off network indicator
             DispatchQueue.main.async {
@@ -224,7 +222,8 @@ public class NaverPapago : NSObject{
             
             //Executes success callback
             let translatedText = success.message.result.text;
-            completionHandler?(response.response?.statusCode ?? 200, translatedText, nil);
+            completionHandler(NaverPapagoSMTResult.success(translatedText));
+            //completionHandler?(response.response?.statusCode ?? 200, translatedText, nil);
         }
     }
 }

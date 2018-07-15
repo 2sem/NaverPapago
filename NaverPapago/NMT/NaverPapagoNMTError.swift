@@ -29,6 +29,11 @@ public struct NaverPapagoNMTError : Codable{
         case code = "errorCode"
     }
     
+    init(_ code: String, message: String) {
+        self.code = code;
+        self.message = message;
+    }
+    
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.message = try container.decode(String.self, forKey: .message);

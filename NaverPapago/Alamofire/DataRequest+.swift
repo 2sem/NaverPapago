@@ -40,7 +40,9 @@ extension DataRequest {
             print(" => response code[\(response.response?.statusCode ?? 0)] - json[\(json.description)]");
             
             guard let success = try? JSONDecoder().decode(S.self, from: data) else {
-                failureHandler(nil, response);
+                if let fail = try? JSONDecoder().decode(F.self, from: data){
+                    failureHandler(fail, response);
+                }
                 return;
             }
             

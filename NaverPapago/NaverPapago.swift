@@ -164,7 +164,11 @@ public class NaverPapago : NSObject{
         Alamofire.request(naverReq.urlRequest).responseObject(success: NaverPapagoNMTResponse.self,
                                                               fail: NaverPapagoNMTError.self,
                                                               failureHandler: {(fail, response) in
-                                                                completionHandler(NaverPapagoNMTResult.error(fail!));
+                                                                guard let fail = fail else{
+                                                                    return;
+                                                                }
+                                                                
+                                                                completionHandler(NaverPapagoNMTResult.error(fail));
         }) { (success, response) in
             //Turns off network indicator
             DispatchQueue.main.async {

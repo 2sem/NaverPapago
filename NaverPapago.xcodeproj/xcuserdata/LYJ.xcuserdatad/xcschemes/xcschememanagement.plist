@@ -7,7 +7,12 @@
 		<key>NaverPapago.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>19</integer>
+			<integer>26</integer>
+		</dict>
+		<key>NaverPapago.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
 		</dict>
 		<key>NaverPapago_.xcscheme</key>
 		<dict>

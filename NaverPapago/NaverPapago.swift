@@ -64,34 +64,41 @@ public class NaverPapago : NSObject{
         return value;
     }
     
-    enum PapagoLocale : String{
-        case korean = "ko-kore"
+    public enum PapagoLocale : String, CaseIterable{
+        case korean = "ko"
         case japanese = "ja"
         case english = "en"
-        case chinese = "zh-Hans"
         case taiwan = "zh-Hant"
-        case spain = "es"
-        case france = "fr"
+        case chinese = "zh-Hans"
         case vietnam = "vi"
-        case thai = "th"
         case indonesian = "id"
+        case thai = "th"
+        case german = "de"
+        case russian = "ru"
+        case spain = "es"
+        case italian = "it"
+        case france = "fr"
     }
     
     enum PapagoLanguage : String{
         case korean = "ko"
-        case japanese = "ja"
         case english = "en"
-        case chinese = "zh-CN"
+        case japanese = "ja"
         case taiwan = "zh-TW"
-        case spain = "es"
-        case france = "fr"
+        case chinese = "zh-CN"
         case vietnam = "vi"
-        case thai = "th"
         case indonesian = "id"
+        case thai = "th"
+        case german = "de"
+        case rusia = "ru"
+        case spain = "es"
+        case italy = "it"
+        case france = "fr"
     }
     
-    static let supportedNMTLangs : [PapagoLocale : PapagoLanguage] = [.korean : .korean, .japanese : .japanese, .english : .english, .chinese : .chinese, .taiwan : .taiwan, .spain : .spain, .france : .france, .vietnam : .vietnam, .thai : .thai,  .indonesian : .indonesian];
+    static let supportedNMTLangs : [PapagoLocale : PapagoLanguage] = [.korean : .korean, .english : .english, .japanese : .japanese, .taiwan : .taiwan, .chinese : .chinese, .vietnam : .vietnam,  .indonesian : .indonesian, .thai : .thai, .german : .german, .russian : .rusia, .spain : .spain, .italian : .italy, .france : .france];
     static let supportedSMTLangs : [PapagoLocale : PapagoLanguage] = [.korean : .korean, .japanese : .japanese, .english : .english, .chinese : .chinese, .taiwan : .taiwan];
+    static let supportedTranslates : [PapagoLocale : [PapagoLocale]] = [.korean : PapagoLocale.allCases.filter{ $0 != .korean }, .english: [.japanese, .france, .taiwan, .chinese, .korean], .japanese: [.taiwan, .chinese, .korean, .english], .taiwan:[.chinese, .korean, .english,.japanese], .chinese:[.korean, .english, .japanese, .taiwan], .vietnam:[.korean], .indonesian:[.korean], .thai:[.korean], .german:[.korean], .russian:[.korean], .spain:[.korean], .italian:[.korean], .france:[.korean, .english]];
     
     /**
         Returns Papago language code converted from given locale
@@ -119,14 +126,40 @@ public class NaverPapago : NSObject{
     static let DefaultSourceLang : PapagoLanguage = .korean;
     
     /**
+         Get target locales can be translated from source locale
+         - parameter source: locale of native text
+         - returns: target locales can be translated from given source locale
+     */
+    public static func supportedTargetLangs(source: Locale) -> [PapagoLocale]{
+        guard let sourceLang = self.PapagoLocale.init(rawValue: source.languageCode ?? "") else{
+            return [];
+        }
+        
+        return self.supportedTranslates[sourceLang] ?? [];
+    }
+    
+    /**
         Returns the indication to able to translate by given locale of source/target
          - parameter source: locale of native text
          - parameter target: locale of translated text
          - returns: the indication to able to translate by given locale of source/target
     */
     public static func canSupportTranslate(source : Locale, target : Locale) -> Bool{
-        return ((source.languageCode == PapagoLanguage.korean.rawValue
-            || target.languageCode == PapagoLanguage.korean.rawValue)) && (source.languageCode != target.languageCode);
+        guard let sourceLang = self.PapagoLocale.init(rawValue: source.languageCode ?? "") else{
+            return false;
+        }
+        
+        guard let targetLang = self.PapagoLocale.init(rawValue: target.languageCode ?? "") else{
+            return false;
+        }
+        
+        guard let locales = self.supportedTranslates[sourceLang] else{
+            return false;
+        }
+        
+        return locales.contains(targetLang);
+        //return ((source.languageCode == PapagoLanguage.korean.rawValue
+        //    || target.languageCode == PapagoLanguage.korean.rawValue)) && (source.languageCode != target.languageCode);
     }
     
     /**

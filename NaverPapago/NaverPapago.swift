@@ -98,7 +98,7 @@ public class NaverPapago : NSObject{
     
     static let supportedNMTLangs : [PapagoLocale : PapagoLanguage] = [.korean : .korean, .english : .english, .japanese : .japanese, .taiwan : .taiwan, .chinese : .chinese, .vietnam : .vietnam,  .indonesian : .indonesian, .thai : .thai, .german : .german, .russian : .rusia, .spain : .spain, .italian : .italy, .france : .france];
     static let supportedSMTLangs : [PapagoLocale : PapagoLanguage] = [.korean : .korean, .japanese : .japanese, .english : .english, .chinese : .chinese, .taiwan : .taiwan];
-    static let supportedTranslates : [PapagoLocale : [PapagoLocale]] = [.korean : PapagoLocale.allCases.filter{ $0 != .korean }, .english: [.japanese, .france, .taiwan, .chinese, .korean], .japanese: [.taiwan, .chinese, .korean, .english], .taiwan:[.chinese, .korean, .english,.japanese], .chinese:[.korean, .english, .japanese, .taiwan], .vietnam:[.korean], .indonesian:[.korean], .thai:[.korean], .german:[.korean], .russian:[.korean], .spain:[.korean], .italian:[.korean], .france:[.korean, .english]];
+    static let supportedTranslates : [PapagoLocale : [PapagoLocale]] = [.korean : PapagoLocale.allCases.filter{ $0 != .korean }, .english: [ .korean, .france, .taiwan, .chinese, .japanese], .japanese: [.korean, .taiwan, .chinese, .english], .taiwan:[.korean, .english, .chinese, .japanese], .chinese:[.korean, .english, .japanese, .taiwan], .vietnam:[.korean], .indonesian:[.korean], .thai:[.korean], .german:[.korean], .russian:[.korean], .spain:[.korean], .italian:[.korean], .france:[.korean, .english]];
     
     /**
         Returns Papago language code converted from given locale

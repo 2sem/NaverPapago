@@ -140,6 +140,6 @@ s.source_files  = "NaverPapago/*.swift", "NaverPapago/*/*.swift", "**/*.{h,m}"
 
 # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
 #s.xcconfig = { "APPLICATION_EXTENSION_API_ONLY" => "NO" }
-s.dependency "Alamofire", "~> 4.7.2"
+s.dependency "Alamofire", "~> 5"
 
 end

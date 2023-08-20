@@ -174,7 +174,7 @@ public class NaverPapago : NSObject{
         # Reference
         * [https://developers.naver.com/docs/nmt/reference](https://developers.naver.com/docs/nmt/reference/)
     */
-    public func requestTranslateByNMT(text : String, source : Locale, target : Locale, completionHandler: @escaping (_ result: NaverPapagoNMTResult) -> Void){
+    public func requestTranslateByNMT(text : String, source : Locale, target : Locale, queue: DispatchQueue = DispatchQueue.global(priority: .default), completionHandler: @escaping (_ result: NaverPapagoNMTResult) -> Void){
         var naverReq = NaverPapagoNMTRequest(id: self.clientIDForAPI(.nmt),
                                              secret: self.clientSecretForAPI(.nmt));
         
@@ -194,14 +194,16 @@ public class NaverPapago : NSObject{
         }
         
         //Calls Naver Papago NMT
-        Alamofire.request(naverReq.urlRequest).responseObject(success: NaverPapagoNMTResponse.self,
-                                                              fail: NaverPapagoNMTError.self,
-                                                              failureHandler: {(fail, response) in
-                                                                guard let fail = fail else{
-                                                                    return;
-                                                                }
-                                                                
-                                                                completionHandler(NaverPapagoNMTResult.error(fail));
+        AF.request(naverReq.urlRequest)
+            .responseObject(success: NaverPapagoNMTResponse.self,
+              fail: NaverPapagoNMTError.self,
+              queue: queue,
+              failureHandler: {(fail, response) in
+                guard let fail = fail else{
+                    return;
+                }
+                
+                completionHandler(NaverPapagoNMTResult.error(fail));
         }) { (success, response) in
             //Turns off network indicator
             DispatchQueue.main.async {
@@ -227,7 +229,7 @@ public class NaverPapago : NSObject{
      # Reference
      * [https://developers.naver.com/docs/nmt/reference](https://developers.naver.com/docs/smt/reference/)
      */
-    public func requestTranslateBySMT(text : String, source : Locale, target : Locale, completionHandler: @escaping (NaverPapagoSMTResult) -> Void){
+    public func requestTranslateBySMT(text : String, source : Locale, target : Locale, queue: DispatchQueue = DispatchQueue.global(priority: .default), completionHandler: @escaping (NaverPapagoSMTResult) -> Void){
         var naverReq = NaverPapagoSMTRequest(id: self.clientIDForAPI(.nmt),
                                        secret: self.clientSecretForAPI(.nmt));
         
@@ -247,8 +249,9 @@ public class NaverPapago : NSObject{
         }
         
         //Calls Naver Papago SMT
-        Alamofire.request(naverReq.urlRequest).responseObject(success: NaverPapagoSMTResponse.self,
+        AF.request(naverReq.urlRequest).responseObject(success: NaverPapagoSMTResponse.self,
                                                               fail: NaverPapagoSMTError.self,
+                                                       queue: queue,
                                                               failureHandler: {(fail, response) in
             completionHandler(NaverPapagoSMTResult.error(fail!));
         }) { (success, response) in

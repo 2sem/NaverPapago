@@ -22,14 +22,14 @@ extension DataRequest {
      */
     @discardableResult
     public func responseObject<S, F>(success : S.Type, fail : F.Type,
-        queue: DispatchQueue? = nil,
-        failureHandler: @escaping (F?, DataResponse<Data>) -> Void,
-        completionHandler: @escaping (S, DataResponse<Data>) -> Void)
+        queue: DispatchQueue,
+        failureHandler: @escaping (F?, DataResponse<Data, AFError>) -> Void,
+        completionHandler: @escaping (S, DataResponse<Data, AFError>) -> Void)
         -> Self where S : Codable, F : Codable
     {
         return self.response(
             queue: queue,
-            responseSerializer: DataRequest.dataResponseSerializer()
+            responseSerializer: DataResponseSerializer()
         ){ (response) in
             guard let data = response.data else{
                 failureHandler(nil, response);

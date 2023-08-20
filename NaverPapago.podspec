@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
 s.name         = "NaverPapago"
 s.version      = "0.0.2"
-s.swift_version = "4.2"
+s.swift_version = "5.5"
 s.summary      = "Pod for Swift to call Naver Papago."
 
 # This description is used to generate tags and improve search results.
